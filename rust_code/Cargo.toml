@@ -3,4 +3,10 @@ name = "rust_code"
 version = "0.1.0"
 authors = ["Matthias Wimmer <m@tthias.eu>"]
 
+[lib]
+crate-type = ["staticlib"]
+
+[profile.dev]
+panic = "abort"
+
 [dependencies]

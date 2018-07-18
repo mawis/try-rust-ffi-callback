@@ -1,5 +1,7 @@
 #! /bin/bash
 
-bindgen --whitelist-function register_callback \
+bindgen --use-core \
+	--ctypes-prefix ::c_interop \
+	--whitelist-function register_callback \
 	c_code/ccode.h \
 	-o rust_code/src/ccode.rs
