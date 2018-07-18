@@ -21,6 +21,6 @@ fn register_callback(data: *mut RustData) {
 }
 
 fn main() {
-    let mut data_box = Box::new(RustData { number: 42 });
-    register_callback(&mut *data_box);
+    let mut data = RustData { number: 42 };
+    register_callback(&mut data);
 }
