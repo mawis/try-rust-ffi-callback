@@ -5,10 +5,12 @@ pub mod ccode;
 extern{}
 
 pub struct RustData {
+    number: u16
 }
 
 unsafe extern "C" fn callback(usr: *mut ::std::os::raw::c_void) {
-    println!("Inside callback!");
+    let data = usr as *mut RustData;
+    println!("Number is {}", (*data).number);
 }
 
 fn register_callback(data: *mut RustData) {
@@ -19,6 +21,6 @@ fn register_callback(data: *mut RustData) {
 }
 
 fn main() {
-    let mut data_box = Box::new(RustData {});
+    let mut data_box = Box::new(RustData { number: 42 });
     register_callback(&mut *data_box);
 }
