@@ -1,6 +1,7 @@
 *~
 *.o
 *.a
+*.map
 
 COPYING
 INSTALL
